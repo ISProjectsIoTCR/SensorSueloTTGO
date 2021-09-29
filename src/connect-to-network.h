@@ -1,5 +1,9 @@
 void connectToNetwork()
 {
+  reg_a = READ_PERI_REG(SENS_SAR_START_FORCE_REG);
+  reg_b = READ_PERI_REG(SENS_SAR_READ_CTRL2_REG);
+  reg_c = READ_PERI_REG(SENS_SAR_MEAS_START2_REG);
+
   Serial.print("Size of SSID array ");
   Serial.println(ssidArrNo);
   const char *Hostname = plant_name.c_str();

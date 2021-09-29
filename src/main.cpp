@@ -73,6 +73,10 @@ struct Config
 };
 Config config;
 
+uint64_t reg_a;
+uint64_t reg_b;
+uint64_t reg_c;
+
 const int led = 13;
 
 #define I2C_SDA 25
@@ -86,6 +90,11 @@ const int led = 13;
 #define USER_BUTTON 35
 #define DS18B20_PIN 21
 #define SensorPin 15 
+
+#define DR_REG_SENS_BASE 0x3ff48800
+#define SENS_SAR_START_FORCE_REG (DR_REG_SENS_BASE + 0x002c)
+#define SENS_SAR_READ_CTRL2_REG (DR_REG_SENS_BASE + 0x0090)
+#define SENS_SAR_MEAS_START2_REG (DR_REG_SENS_BASE + 0x0094)
 
 BH1750 lightMeter(0x23); //0x23
 Adafruit_BME280 bmp;     //0x77

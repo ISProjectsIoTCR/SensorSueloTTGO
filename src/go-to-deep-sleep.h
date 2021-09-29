@@ -3,13 +3,18 @@ void goToDeepSleep()
   Serial.print("Going to sleep... ");
   Serial.print(TIME_TO_SLEEP);
   Serial.println(" seconds");
-  if (logging) {
+  if (logging)
+  {
     writeFile(SPIFFS, "/error.log", "Going to sleep for 10800 seconds \n");
   }
 
   WiFi.disconnect(true);
   WiFi.mode(WIFI_OFF);
   btStop();
+
+  WRITE_PERI_REG(SENS_SAR_START_FORCE_REG, reg_a); // fix ADC registers
+  WRITE_PERI_REG(SENS_SAR_READ_CTRL2_REG, reg_b);
+  WRITE_PERI_REG(SENS_SAR_MEAS_START2_REG, reg_c);
 
   // Configure the timer to wake us up!
   esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
@@ -30,7 +35,8 @@ void goToDeepSleepFiveMinutes()
   Serial.print("Going to sleep... ");
   Serial.print("300");
   Serial.println(" sekunder");
-  if (logging) {
+  if (logging)
+  {
     writeFile(SPIFFS, "/error.log", "Going to sleep for 300 seconds \n");
   }
 
