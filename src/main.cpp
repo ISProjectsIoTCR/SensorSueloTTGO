@@ -201,8 +201,6 @@ void setup()
   config.soilHum = soilHum;
   Serial.print("el valor de la humedad del suelo es: ");
   Serial.print(config.soilHum);
-  delay(7000);
-
 
 
 //CALCULAR FETILIZANTE

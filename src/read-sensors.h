@@ -11,9 +11,7 @@ uint32_t readSalt()
   for (int i = 0; i < samples; i++)
   {
     array[i] = analogRead(SALT_PIN);
-  //  Serial.print("Read salt pin : ");
 
-  //  Serial.println(array[i]);
     delay(2);
   }
   std::sort(array, array + samples);
@@ -57,12 +55,32 @@ float readSoilTemp()
 // READ SOIL HUMIDITY
 float readSoilHum()
 {
-  float sensorValue = analogRead(15);
-  sensorValue = map(sensorValue,900,4095,100,0);
-  delay(3000);
-  Serial.println(sensorValue);
+  uint8_t samples = 120;
+  uint32_t hum = 1;
+  uint16_t array[120];
 
-  return sensorValue;
+  for (int i = 0; i < samples; i++)
+  {
+    array[i] = analogRead(SensorPin);
+    Serial.println(array[i]);
+    delay(5);
+  }
+  std::sort(array, array + samples);
+  for (int i = 0; i < samples; i++)
+  {
+    if (i == 0 || i == samples - 1)
+      continue;
+    hum += array[i];
+  }
+  hum /= samples - 2;
+  hum = map(hum,900,4095,100,0);
+  return hum;
+
+  //float sensorValue = analogRead(15);
+  //sensorValue = map(sensorValue,900,4095,100,0);
+  //delay(3000);
+  //Serial.println(sensorValue);
+  //return sensorValue;
 }
 
 // READ Battery
