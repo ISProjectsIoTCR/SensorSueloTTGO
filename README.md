@@ -1,7 +1,9 @@
 MATERIALES DISPONIBLES EN CR CIBERNETICA:
 
 -ESP32 Soil Humidity and Temperature Sensor Module
+
 -Soil Hygrometer Sensor Module (SOLDADO EN LOS PINES 3V,GND,2,15 DEL TTGO-HIGROW)
+
 -DASHBOARD IoTProjects
 
 
