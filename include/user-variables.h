@@ -57,7 +57,7 @@ const String device_name = "Tgrow_HIGrow"; // Can be changed, but not necessary,
 #define uS_TO_S_FACTOR 1000000ULL //Conversion factor for micro seconds to seconds
 //#define TIME_TO_SLEEP  60       //Time ESP32 will go to sleep (in seconds)
 
-#define TIME_TO_SLEEP  900                                //rutina por defecto
+#define TIME_TO_SLEEP  3600                               //rutina por defecto
 
 
 
