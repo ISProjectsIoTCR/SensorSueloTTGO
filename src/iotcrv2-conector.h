@@ -96,7 +96,7 @@ void connect_to_IoTCRv2()
     Serial.println(boldRed + "\n\n      Error getting mqtt credentials :( \n\n RESTARTING IN 10 SECONDS");
     Serial.println(fontReset);
     delay(10000);
-    ESP.restart();
+    goToDeepSleepFiveMinutes();
   }
 
   //Setting up Mqtt Server

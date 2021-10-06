@@ -44,9 +44,14 @@ void goToDeepSleepFiveMinutes()
   WiFi.mode(WIFI_OFF);
   btStop();
 
+
   adc_power_off();
   esp_wifi_stop();
   esp_bt_controller_disable();
+
+  WRITE_PERI_REG(SENS_SAR_START_FORCE_REG, reg_a); // fix ADC registers
+  WRITE_PERI_REG(SENS_SAR_READ_CTRL2_REG, reg_b);
+  WRITE_PERI_REG(SENS_SAR_MEAS_START2_REG, reg_c);
 
   // Configure the timer to wake us up!
   ++sleep5no;
